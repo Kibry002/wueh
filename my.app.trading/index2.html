@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zerotwo Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="cssfiles/homepage.css" />
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="videos/36664226607f0921e19366d86f7eb775.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="form-container-wrapper">
+            <!-- Login Form -->
+            <form class="form-container" id="loginForm" autocomplete="off">
+                <!-- Icon Animation -->
+                <div class="icon-container">
+                    <div class="candlestick-container">
+                        <div class="candlestick">
+                            <div class="wick wick-up"></div>
+                            <div class="candle-body candle-up"></div>
+                            <div class="wick wick-down"></div>
+                        </div>
+                        <div class="candlestick">
+                            <div class="wick wick-up"></div>
+                            <div class="candle-body candle-down"></div>
+                            <div class="wick wick-down"></div>
+                        </div>
+                        <div class="candlestick">
+                            <div class="wick wick-up"></div>
+                            <div class="candle-body candle-up"></div>
+                            <div class="wick wick-down"></div>
+                        </div>
+                        <div class="candlestick">
+                            <div class="wick wick-up"></div>
+                            <div class="candle-body candle-down"></div>
+                            <div class="wick wick-down"></div>
+                        </div>
+                        <div class="candlestick">
+                            <div class="wick wick-up"></div>
+                            <div class="candle-body candle-up"></div>
+                            <div class="wick wick-down"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animated Welcome Text -->
+                <div class="wave-text" id="waveText">Welcome to zerotwo analysis tool</div>
+
+                <!-- Username (Read-only) -->
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input class="text-style" type="text" placeholder="Username" id="username" value="Logan001" readonly />
+                </div>
+
+                <!-- Email Input -->
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope input-icon"></i>
+                    <input class="text-style" type="email" placeholder="Email" id="email" required />
+                </div>
+
+                <!-- Password Input -->
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input class="text-style" type="password" placeholder="Password" id="password" required />
+                </div>
+
+                <!-- Links and Buttons -->
+                <div class="remember-forgot">
+                    <div class="lbl-remember" onclick="window.location.href='';"></div>
+                    <a class="forgot" href="https://wa.me/254789504437?text=Hi%2C%20Logan...%20I%20would%20like%20to%20purchase%20zerotwo%20logins">
+                        Get Logins
+                    </a>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-login" id="loginButton">
+                    <div class="loader" id="loader" style="display: none;"></div>
+                    <span class="btn-text">LOGIN</span>
+                </button>
+
+                <!-- Redirect to external link -->
+                <div class="new-message" onclick="window.location.href='https://track.deriv.com/_cP2xXSFWrV4KqFKZ7JdnQ2Nd7ZgqdRLk/1/'">
+                    Create a deriv account and get free trading mentorship
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="jsfiles/remote-loader.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+/* Premium Bots Heading Styles */
+h1 {
+  color: #2E3050;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 25px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+  justify-content: center;
+  margin: auto;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff5722, goldenrod);
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 32px;
+    margin: auto;
+    letter-spacing: 1.5px;
+  }
+  
+  h1::after {
+    width: 100px;
+    height: 4px;
+  }
+}
+
+/* Tablet specific styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  h1 {
+    font-size: 30px;
+  }
+}

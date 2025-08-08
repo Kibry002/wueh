@@ -1,0 +1,112 @@
+/* Flex wrap for number grid + trade params grid */
+.trade-flex-wrap {
+  display: flex;
+  gap: 28px;
+  margin: 24px 0 12px 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* The trade parameters grid card */
+.trade-params-grid {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(36, 40, 80, 0.12), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+  padding: 20px 18px 16px 18px;
+  min-width: 230px;
+  max-width: 320px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Optional title for clarity */
+.trade-params-title {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #20212a;
+  text-align: left;
+}
+
+/* 2x2 grid for the parameters */
+.trade-params-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 18px 16px;
+}
+
+.trade-params-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.trade-params-label {
+  font-size: 14px;
+  color: #5b5f71;
+  margin-bottom: 5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.trade-params-input {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e6ec;
+  background: #fafbfc;
+  color: #272b32;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  transition: border 0.18s;
+  outline: none;
+}
+
+.trade-params-input:focus {
+  border: 1.5px solid #6e7fef;
+  background: #f6f8fe;
+}
+
+@media (max-width: 850px) {
+  .trade-flex-wrap {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .trade-params-grid {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .trade-params-table {
+    grid-template-columns: 1fr;
+    grid-gap: 14px 0;
+  }
+  .trade-params-grid {
+    padding: 15px 7px 13px 7px;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .trade-params-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .trade-params-label {
+    font-size: 13px;
+  }
+  .trade-params-input {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+}

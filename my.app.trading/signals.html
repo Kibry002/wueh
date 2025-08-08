@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signal Centre</title>
+  <link rel="stylesheet" href="cssfiles/singnals.css" />
+  <link rel="stylesheet" href="cssfiles/home3.css" />
+
+  <link rel="stylesheet" href="cssfiles/bar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar">
+    <div class="navbar-top">
+      <div class="left-section">
+        <div class="logo">
+          <img src="logos/zerotwologo.png" style="border-radius: 80px; ">
+        </div>
+        <span class="zerotwo-text">ZEROTWO</span>
+        <span class="message-icon" role="button" aria-label="Toggle social links">💬</span>
+      </div>
+      <div class="right-section">
+        <span class="balance-indicator">Bal: 235$</span>
+        <span class="random-number">CR432346</span>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+<ul class="nav-links">
+  <li class="nav-item" style="cursor: pointer;">Analysis</li>
+  <li class="nav-item" style="cursor: pointer;">Signals</li>
+  <li class="nav-item" style="cursor: pointer;">Auto Trading</li>
+  <li class="nav-item" style="cursor: pointer;">Manual</li>
+  <li class="nav-item" style="cursor: pointer;">Premium Strategies</li>
+  <li class="nav-item" style="cursor: pointer;">Bot Site</li>
+  <li class="nav-item">Logout</li>
+</ul>
+
+    <!-- Social Links Dropdown -->
+    <ul class="social-links" id="social-links">
+      <li><a href="https://wa.me/"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
+      <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i>Instagram</a></li>
+      <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i>Twitter</a></li>
+      <li><a href="https://tiktok.com/"><i class="fab fa-tiktok"></i>TikTok</a></li>
+    </ul>
+  </nav>
+
+
+
+  <div class="signal-centre" id="signalCentre">
+    <h2>Signal Centre</h2>
+    <div class="arrangement-grid">
+      <div class="input-group">
+        <button class="input-label-btn">API</button>
+        <input type="password" id="apiTokenInput" placeholder="API Token (for real trades)">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Stake</button>
+        <input type="number" id="stakeInput" placeholder="Stake" min="0.35" step="0.01">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Ticks</button>
+        <input type="number" id="ticksInput" placeholder="Ticks (1-10)" min="1" max="10">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Martingale</button>
+        <input type="number" id="martingaleInput" placeholder="Martingale">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">SL</button>
+        <input type="number" id="stopLossInput" placeholder="Stop Loss" min="0" step="0.01">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">TP</button>
+        <input type="number" id="takeProfitInput" placeholder="Take Profit" min="0" step="0.01">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Stake2</button>
+        <input type="number" id="Stake2" placeholder="Stake2" min="0" max="9">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Prediction</button>
+        <input type="number" id="predictionInput" placeholder="Prediction (0-9)" min="0" max="9">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Trades</button>
+        <input type="number" id="numTradesInput" placeholder="Trades (6)" min="1" max="6">
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Type</button>
+        <select id="tradeTypeDropdown">
+          <option value="even">Even</option>
+          <option value="odd">Odd</option>
+          <option value="over">Over</option>
+          <option value="under">Under</option>
+          <option value="matches">Matches</option>
+          <option value="differs">Differs</option>
+          <option value="rise">Rise</option>
+          <option value="fall">Fall</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Market</button>
+        <select id="marketDropdown">
+          <option value="all-markets">Global</option>
+          <option value="1HZ10V">1HZ10V</option>
+          <option value="R_10">R_10</option>
+          <option value="1HZ25V">1HZ25V</option>
+          <option value="R_25">R_25</option>
+          <option value="1HZ50V">1HZ50V</option>
+          <option value="R_50">R_50</option>
+          <option value="1HZ75V">1HZ75V</option>
+          <option value="R_75">R_75</option>
+          <option value="1HZ100V">1HZ100V</option>
+          <option value="R_100">R_100</option>
+          <option value="RDBEAR">RDBEAR</option>
+          <option value="RDBULL">RDBULL</option>
+          <option value="JD10">JD10</option>
+          <option value="JD25">JD25</option>
+          <option value="JD50">JD50</option>
+          <option value="JD75">JD75</option>
+          <option value="JD100">JD100</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <button class="input-label-btn">Strategy</button>
+        <select id="strategyDropdown">
+          <option value="strategy1">Strategy 1</option>
+          <option value="strategy2">Strategy 2</option>
+          <option value="strategy3">Strategy 3</option>
+          <option value="strategy4">Strategy 4</option>
+          <option value="strategy5">Strategy 5</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label class="toggle-switch" style="margin-bottom:2px;">
+          <input type="checkbox" id="globalToggle">
+          <span class="slider"></span>
+        </label>
+        <span style="font-size:14px;padding-left:10px;color:#333;">Global</span>
+      </div>
+      <button id="apiTokenLoginBtn" style="margin-left:10px;">Login</button>
+      <button id="scanBtn">Scan</button>
+      <button id="tradeTableBtn">Trade Table</button>
+      <span id="apiTokenStatus" style="grid-column:1/-1;margin-left:12px;font-size:14px;color:#2e7d32;display:none;"></span>
+    </div>
+ 
+    </div>
+    <div class="signal-grid" id="signalResults"></div>
+    <div class="toast-container" id="toastContainer"></div>
+  </div>
+  <div id="tradeTableModalBg">
+    <div id="tradeTableModal">
+      <span id="tradeTableModalClose">×</span>
+      <h3>Transactions</h3>
+      <button id="resetTradesBtn">Reset</button>
+      <div class="trade-table-wrap">
+        <div id="tradeTableLoader">No trades yet.</div>
+        <table id="tradeTable" style="display:none;">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Entry/Exit</th>
+              <th>Stake</th>
+              <th>P/L</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="trade-tbody"></tbody>
+        </table>
+        <div class="trade-summary" id="tradeSummary" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+     <script src="jsfiles/navigation2.js"></script>
+  <script src="jsfiles/1auth-guard.js"></script>
+<script src="jsfiles/device-fingerprint2.js"></script>
+<script src="jsfiles/.alive.js"></script>
+
+ <script src="jsfiles/bar.js"></script>
+  <script src="jsfiles/client2.js"></script>
+  <script src="jsfiles/signals.js"></script>
+
+
+</body>
+</html>

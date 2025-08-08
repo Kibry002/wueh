@@ -1,0 +1,216 @@
+/* ===== STRATEGY SECTION ===== */
+.strategy-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  border: 2px solid #e9e6e7;
+  transition: var(--transition);
+  height: fit-content;
+}
+
+.strategy-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(58, 54, 219, 0.25);
+  border-color: var(--accent-color);
+}
+
+.strategy-controls {
+  margin-bottom: 20px;
+}
+
+.strategy-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.strategy-form-container {
+  background-color: #f8f9fa;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+}
+
+.strategy-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 25px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  background-color: var(--card-bg);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(58, 54, 219, 0.1);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+.results-button {
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  flex: 1;
+  text-align: center;
+}
+
+.results-button:hover {
+  background: #e0a800;
+  transform: translateY(-2px);
+}
+
+.trade-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  flex: 1;
+  text-align: center;
+}
+
+.trade-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Main Content Layout */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.content-row {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+  .content-row {
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    height: 100px;
+  }
+
+  }
+  
+  #divA {
+    width: 500px;
+    min-height: 400px;
+    margin-top: 155px;
+  }
+  
+  #divB {
+    width: 430px;
+    min-height: 400px;
+    margin-top: 155px;
+  }
+  
+  #divC {
+    width: 430px;
+    min-height: 400px;
+    margin-top: 155px;
+  }
+
+
+/* Tablet Layout */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .strategy-form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+  .strategy-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+       @media (min-width: 1024px) {
+            .strategy-section {
+                height: 365px;
+               
+            }
+            .strategy-form {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .strategy-form .form-group,
+            .strategy-form .results-button,
+            .strategy-form .trade-button {
+              margin-left: 0px;
+              margin-right: 0px;
+                width: 20%; /* Half width minus half the gap */
+                margin-bottom: 0px; /* Reduced to fit height */
+            }
+            .form-input
+            {
+                width: 70px; /* Full width for desktop */
+               
+            }
+            .strategy-form .action-buttons {
+                display: flex;
+                gap: 10px;
+                margin-top: 0; /* Removed to avoid extra height */
+                width: 100%; /* Ensure full width for button alignment */
+                margin-bottom: 0; /* Remove any default margin */
+            }
+            .strategy-form .results-button,
+            .strategy-form .trade-button {
+                padding: 8px; /* Reduced from 12px to save height */
+                height: auto; /* Allow natural height */
+                box-sizing: border-box; /* Include padding in height calculation */
+            }
+            .strategy-form-container {
+                overflow-y: auto; /* Handle any minor overflow */
+            }
+        }
+
+
+

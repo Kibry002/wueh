@@ -1,0 +1,204 @@
+
+
+/* ===== SIDEBAR AND HAMBURGER ===== */
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hamburger :hover
+{
+  background-color: rgb(228, 223, 221);
+  color: rgb(228, 223, 221);
+}
+
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -80px;
+  width: 155px;
+  height: 100vh;
+  background: linear-gradient(135deg, #8e8be9, #251844);
+  color: aliceblue;
+  padding: 60px 20px 20px;
+  transition: all 0.3s ease;
+  z-index: 90;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  box-shadow: rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 5px rgb(1, 1, 900, 2);
+}
+
+  
+
+.sidebar.active {
+  left: 0;
+  width: 165px;
+  flex-direction: column;
+  
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 17;
+  color: white;
+  display: none;
+}
+
+.sidebar.active .logo-text {
+  display: inline;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.sidebar li:hover {
+  background-color: rgb(138, 132, 130);
+}
+
+.sidebar li .icon {
+  width: 24px;
+  height: 24px;
+ margin-left: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-right: 15px;
+  
+}
+
+.sidebar li .text {
+  display: none;
+}
+
+.sidebar.active li .text {
+  display: inline;
+  
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Signals icon specific adjustment */
+.sidebar li:nth-child(2) .menu-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Overlay for closing sidebar */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 80;
+  display: none;
+}
+
+.sidebar.active ~ .overlay {
+  display: block;
+ 
+}
+
+/* Responsive Layouts for Sidebar */
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+
+  .sidebar {
+    width: 270px;
+    padding: 30px 0px 0px;
+    left: 0 !important;
+    box-shadow: none;
+    box-shadow: 5px 5px 5px rgb(1, 1, 900, 2);
+  }
+
+  .logo-container {
+    margin-bottom: 40px;
+    padding-left: 20px;
+  }
+
+  .sidebar .logo-text,
+  .sidebar li .text {
+    display: inline !important;
+  }
+
+  .overlay {
+    display: none !important;
+    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hamburger {
+    left: 30px;
+    top: 25px;
+  }
+
+  .sidebar {
+    left: -80px;
+  }
+
+  .sidebar.active {
+    left: 0;
+    
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    left: -60px;
+    width: 200px;
+  }
+  
+  .sidebar.active {
+    left: 0;
+  }
+}

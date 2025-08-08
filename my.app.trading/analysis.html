@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="cssfiles/home2.css">
+  <link rel="stylesheet" href="cssfiles/home3.css">
+  <link rel="stylesheet" href="cssfiles/bar.css">
+
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-top">
+      <div class="left-section">
+        <div class="logo">
+          <img src="logos/zerotwologo.png" style="border-radius: 80px; ">
+        </div>
+        <span class="zerotwo-text">ZEROTWO</span>
+        <span class="message-icon" role="button" aria-label="Toggle social links">💬</span>
+      </div>
+      <div class="right-section">
+        <span class="balance-indicator">Bal: 235$</span>
+        <span class="random-number">CR432346</span>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+<ul class="nav-links">
+  <li class="nav-item" style="cursor: pointer;">Analysis</li>
+  <li class="nav-item" style="cursor: pointer;">Signals</li>
+  <li class="nav-item" style="cursor: pointer;">Auto Trading</li>
+  <li class="nav-item" style="cursor: pointer;">Manual</li>
+  <li class="nav-item" style="cursor: pointer;">Premium Strategies</li>
+  <li class="nav-item" style="cursor: pointer;">Bot Site</li>
+  <li class="nav-item">Logout</li>
+</ul>
+
+    <!-- Social Links Dropdown -->
+    <ul class="social-links" id="social-links">
+      <li><a href="https://wa.me/"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
+      <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i>Instagram</a></li>
+      <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i>Twitter</a></li>
+      <li><a href="https://tiktok.com/"><i class="fab fa-tiktok"></i>TikTok</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content" id="mainContent">
+    <div class="container-wrapper">
+      <div class="content-row">
+        <div id="divA">
+          <div class="control-row">
+            <button class="action-button">Market</button>
+            <select class="action-dropdown" id="market-select">
+              <option value="1HZ10V">Volatility 10(1s)</option>
+              <option value="R_10">Volatility 10</option>
+              <option value="1HZ25V">Volatility 25(1s)</option>
+              <option value="R_25">Volatility 25</option>
+              <option value="1HZ50V">Volatility 50(1s)</option>
+              <option value="R_50">Volatility 50</option>
+              <option value="1HZ75V">Volatility 75(1s)</option>
+              <option value="R_75">Volatility 75</option>
+              <option value="1HZ100V">Volatility 100(1s)</option>
+              <option value="R_100">Volatility 100</option>
+              <option value="RDBEAR">Bear Market</option>
+              <option value="RDBULL">Bull Market</option>
+              <option value="JD10">Jump 10 Index</option>
+              <option value="JD25">Jump 25 Index</option>
+              <option value="JD50">Jump 50 Index</option>
+              <option value="JD75">Jump 75 Index</option>
+              <option value="JD100">Jump 100 Index</option>
+            </select>
+            <button class="action-button">Buy</button>
+          </div>
+          
+          <div class="control-row">
+            <button class="action-button">Ticks</button>
+            <select class="action-dropdown" id="ticks-select">
+              <option value="">Select Ticks</option>
+              <option value="50">50 ticks</option>
+              <option value="100">100 ticks</option>
+              <option value="500">500 ticks</option>
+              <option value="1000">1000 ticks</option>
+            </select>
+            <button class="action-button">Run</button>
+          </div>
+          
+          <div class="number-grid">
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">0</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">1</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">2</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">3</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">4</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">5</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">6</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">7</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">8</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">9</span>
+              <span class="percentage">0.0%</span>
+            </button>
+          </div>
+        </div>
+        
+        <div id="divB">
+          <div class="stats-container">
+            <div class="stats-title">Even/Odd stats</div>
+            <div class="stats-labels">
+              <div class="stats-label">Even</div>
+              <div class="stats-label">Odd</div>
+            </div>
+            <div class="stats-squares">
+              <div class="stats-square"></div>
+              <div class="stats-square"></div>
+            </div>
+          </div>
+          
+          <div class="stats-container">
+            <div class="stats-title">Over/Under stats</div>
+            <div class="stats-numbers">
+              <div class="stats-number">0</div>
+              <div class="stats-number">1</div>
+              <div class="stats-number">2</div>
+              <div class="stats-number">3</div>
+              <div class="stats-number">4</div>
+              <div class="stats-number">5</div>
+              <div class="stats-number">6</div>
+              <div class="stats-number">7</div>
+              <div class="stats-number">8</div>
+              <div class="stats-number">9</div>
+            </div>
+            <div class="stats-labels">
+              <div class="stats-label">Over</div>
+              <div class="stats-label">Under</div>
+            </div>
+            <div class="stats-squares">
+              <div class="stats-square"></div>
+              <div class="stats-square"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="divC">
+          <div class="stats-container">
+            <div class="stats-title">Matches/Differs stats</div>
+            <div class="stats-numbers">
+              <div class="stats-number">0</div>
+              <div class="stats-number">1</div>
+              <div class="stats-number">2</div>
+              <div class="stats-number">3</div>
+              <div class="stats-number">4</div>
+              <div class="stats-number">5</div>
+              <div class="stats-number">6</div>
+              <div class="stats-number">7</div>
+              <div class="stats-number">8</div>
+              <div class="stats-number">9</div>
+            </div>
+            <div class="stats-labels">
+              <div class="stats-label">Matches</div>
+              <div class="stats-label">Differs</div>
+            </div>
+            <div class="stats-squares">
+              <div class="stats-square"></div>
+              <div class="stats-square"></div>
+            </div>
+          </div>
+          
+          <div class="stats-container">
+            <div class="stats-title">Rise/Fall stats</div>
+            <div class="stats-labels">
+              <div class="stats-label">Rise</div>
+              <div class="stats-label">Fall</div>
+            </div>
+            <div class="stats-squares">
+              <div class="stats-square"></div>
+              <div class="stats-square"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <iframe src="https://charts.deriv.com/deriv" frameborder="0" class="chart-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+    <script src="jsfiles/navigation2.js"></script>
+  <script src="jsfiles/a4uth-guard.js"></script>
+<script src="jsfiles/device-fingerprint2.js"></script>
+<script src="jsfiles/.alive.js"></script>
+
+ 
+  <script src="jsfiles/client2.js"></script>
+  <script src="jsfiles/bar.js"></script>
+
+
+</body>
+</html>

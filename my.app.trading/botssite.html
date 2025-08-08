@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="cssfiles/home3.css">
+  <link rel="stylesheet" href="cssfiles/bot.css">
+  <link rel="stylesheet" href="cssfiles/h1text.css">
+  <link rel="stylesheet" href="cssfiles/bar.css">
+</head>
+<body>
+<body>
+  <nav class="navbar">
+    <div class="navbar-top">
+      <div class="left-section">
+        <div class="logo">
+          <img src="logos/zerotwologo.png" style="border-radius: 80px; ">
+        </div>
+        <span class="zerotwo-text">ZEROTWO</span>
+        <span class="message-icon" role="button" aria-label="Toggle social links">💬</span>
+      </div>
+      <div class="right-section">
+        <span class="balance-indicator">Bal: 235$</span>
+        <span class="random-number">CR432346</span>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+<ul class="nav-links">
+  <li class="nav-item" style="cursor: pointer;">Analysis</li>
+  <li class="nav-item" style="cursor: pointer;">Signals</li>
+  <li class="nav-item" style="cursor: pointer;">Auto Trading</li>
+  <li class="nav-item" style="cursor: pointer;">Manual</li>
+  <li class="nav-item" style="cursor: pointer;">Premium Strategies</li>
+  <li class="nav-item" style="cursor: pointer;">Bot Site</li>
+  <li class="nav-item">Logout</li>
+</ul>
+
+    <!-- Social Links Dropdown -->
+    <ul class="social-links" id="social-links">
+      <li><a href="https://wa.me/"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
+      <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i>Instagram</a></li>
+      <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i>Twitter</a></li>
+      <li><a href="https://tiktok.com/"><i class="fab fa-tiktok"></i>TikTok</a></li>
+    </ul>
+  </nav>
+  
+
+    <div class="container">
+        <header>
+            <h1>PREMIUM BOTS</h1>
+            <div class="stats">
+                <span id="botCount">0 bots</span>
+            </div>
+        </header>
+        
+        <div class="upload-card" id="uploadCard">
+            <div class="upload-title">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h2>Upload New Bot</h2>
+            </div>
+            <form class="upload-form" id="uploadForm">
+                <label class="file-upload" for="botFile" id="botFileLabel">
+                    <i class="fas fa-file-code"></i>
+                    <p>Bot XML File</p>
+                    <small>.xml files only</small>
+                    <div class="file-name" id="botFileName">No file selected</div>
+                    <input type="file" id="botFile" accept=".xml">
+                </label>
+                
+                <label class="file-upload" for="botImage" id="botImageLabel">
+                    <i class="fas fa-image"></i>
+                    <p>Performance Screenshot</p>
+                    <small>PNG, JPG, etc.</small>
+                    <div class="file-name" id="botImageName">No file selected</div>
+                    <input type="file" id="botImage" accept="image/*">
+                </label>
+                
+                <button type="button" class="upload-btn" id="uploadBtn">
+                    <i class="fas fa-upload"></i> Upload Bot
+                </button>
+            </form>
+        </div>
+        
+        <div style="margin-left: 70px;" class="bots-grid" id="botContainer">
+            <div class="empty-state">
+                <i class="fas fa-robot"></i>
+                <h3>No Bots Uploaded Yet</h3>
+                <p>Upload your first trading bot to get started</p>
+            </div>
+        </div>
+    </div>
+   <script src="jsfiles/navigation2.js"></script>
+  <script src="jsfiles/aut4h-guard.js"></script>
+<script src="jsfiles/device-fingerprint2.js"></script>
+<script src="jsfiles/.alive.js"></script>
+
+ 
+  <script src="jsfiles/client2.js"></script>
+  <script src="jsfiles/bar.js"></script>
+</body>
+</html>
+
+

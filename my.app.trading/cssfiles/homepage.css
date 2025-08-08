@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container-wrapper {
+    background: transparent;
+    border-radius: 2.5rem;
+    padding: 1px;
+    box-shadow: 0 0 50px 0 black;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.0);
+    padding: 3rem;
+    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.icon-container {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 3px solid #47c9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.candlestick-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    height: 80px;
+}
+
+.candlestick {
+    width: 5px;
+    margin: 0 1px;
+    position: relative;
+    animation: moveUpDown 2s infinite alternate;
+    height: 40px;
+}
+
+.candle-body {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.candle-up {
+    background-color: #0094ff;
+    height: 30px;
+}
+
+.candle-down {
+    background-color: #ff4b4b;
+    height: 20px;
+}
+
+.wick {
+    position: absolute;
+    width: 2px;
+    background-color: #333;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wick-up {
+    height: 30px;
+    bottom: 100%;
+}
+
+.wick-down {
+    height: 14px;
+    top: 100%;
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper .input-icon {
+    position: absolute;
+    color: #bcc0c2;
+    top: 8px;
+    margin-left: 15px;
+}
+
+input.text-style {
+    padding: 10px 10px 10px 50px;
+    border: none;
+    background: rgba(255, 255, 255, 0.0);
+    margin-bottom: 10px;
+    color: #d5e1f6;
+    outline: none;
+    border-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+    color: #bcc0c2;
+}
+
+.remember-forgot {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lbl-remember {
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.lbl-remember:hover {
+    color: #007bff;
+}
+
+.forgot {
+    font-size: 12px;
+    color: white;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forgot:hover {
+    color: #007bff;
+}
+
+button.btn-login {
+    background: linear-gradient(to right, #002250, #015696);
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    height: 50px;
+    margin-top: 20px;
+    color: #d6e1f6;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+button.btn-login:hover {
+    background: #08328d;
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    border-top-color: #ab25b0;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.auth-text {
+    font-size: 14px;
+    color: white;
+    display: none;
+}
+
+.new-message {
+    margin-top: 20px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.new-message:hover {
+    color: #007bff;
+}
+
+.wave-text {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+   
+}
+
+.wave-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}

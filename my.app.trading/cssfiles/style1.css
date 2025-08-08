@@ -1,0 +1,610 @@
+/* ===== BASE STYLES ===== */
+:root {
+  --primary-color: #3a36db;
+  --secondary-color: #2a276b;
+  --accent-color: #00c4cc;
+  --text-color: #333;
+  --light-text: #f8f9fa;
+  --card-bg: #ffffff;
+  --bg-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 10px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+.main-content {
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Ensure original padding-top is maintained */
+body .main-content {
+  padding-top: 120px; /* From bar.css for mobile */
+}
+
+.container-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* ===== CONTROL ELEMENTS ===== */
+.control-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%; /* Match number-grid width */
+  max-width: calc(100% - 25px); /* Account for left (10px) and right (15px) margins */
+}
+
+.action-button {
+  flex: 1; /* Distribute space equally */
+  height: 40px;
+  background: var(--card-bg);
+  color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  padding: 0 8px;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.action-dropdown {
+  flex: 2; /* Give more space to dropdown to accommodate longer text */
+  height: 40px;
+  background-color: var(--card-bg);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  padding: 0 24px 0 8px; /* Extra padding-right for dropdown arrow */
+  font-size: 14px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 15px;
+  transition: var(--transition);
+  min-width: 150px; /* Ensure enough width for longer text like "Volatility 100(1s)" */
+  overflow: visible; /* Prevent text truncation */
+}
+
+.action-dropdown:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(58, 54, 219, 0.2);
+}
+
+/* ===== NUMBER GRID ===== */
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  padding: 12px;
+  height: 280px;
+  box-shadow: var(--box-shadow);
+  width: 100%; /* Match parent container */
+  max-width: calc(100% - 25px); /* Account for left (10px) and right (15px) margins */
+}
+
+.number-button {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: var(--transition);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.number-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.number {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.percentage {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* ===== STRATEGY SECTION ===== */
+.strategy-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  border: 2px solid #e9e6e7;
+  height: 370px; /* number-grid (280px) + control-row (40px) + margin-bottom (12px) */
+  overflow-y: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.strategy-controls {
+  margin-bottom: 8px;
+}
+
+.strategy-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.strategy-form-container {
+  margin-top: 8px;
+
+}
+
+.form-group {
+  margin-bottom: 8px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  transition: var(--transition);
+  background: var(--card-bg);
+}
+
+.form-input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(58, 54, 219, 0.2);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.results-button, .trade-button {
+  flex: 1;
+  height: 40px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.results-button:hover, .trade-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Inline-block for form fields in inline-form-group in desktop and tablet */
+@media (min-width: 768px) {
+  .inline-form-group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .inline-form-group .form-group {
+    flex: 1;
+    min-width: 0; /* Prevent overflow */
+  }
+
+  .inline-form-group .form-group .form-input {
+    width: 100%;
+  }
+
+  /* Ensure other fields remain stacked */
+  .strategy-form .form-group:not(.inline-form-group .form-group) {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* ===== CHART IFRAME STYLES ===== */
+.chart-container {
+  width: 100%;
+  margin-top: 20px; /* Original margin-top */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 400px;
+  box-shadow: var(--box-shadow);
+}
+
+.chart-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+.cursor-pointer {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid var(--accent-color);
+  display: none;
+}
+
+.number-button.active .cursor-pointer {
+  display: block;
+}
+
+.number-button.highest {
+  background-color: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.number-button.lowest {
+  background-color: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+/* ===== RESPONSIVE LAYOUTS ===== */
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+  body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    flex: 1;
+  }
+
+  .container-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    height: calc(100vh - 40px);
+    margin: 0 auto;
+  }
+
+  .content-row {
+    display: flex;
+    flex: 1;
+    gap: 24px;
+    width: 100%;
+    min-height: 450px;
+    margin-bottom: 5px;
+  }
+
+  #divA {
+    width: 500px;
+    min-height: 400px;
+    margin-top: -10px;
+    padding: 0 10px; /* Match number-grid margins */
+  }
+
+  #divB, #divC {
+    width: 430px;
+    min-height: 400px;
+  }
+
+  .control-row {
+    width: 100%; /* Match number-grid width */
+    max-width: 480px; /* 500px - 20px (10px left + 10px right padding) */
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .number-grid {
+    height: 280px;
+    gap: 8px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+    max-width: 480px; /* Match control-row */
+  }
+
+  .action-button,
+  .action-dropdown {
+    flex: 1; /* Equal distribution */
+    min-width: 0; /* Allow shrinking */
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .number-button {
+    margin-top: 24px;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+  }
+
+  .strategy-section {
+    height: 332px;
+    margin-top: 40px;
+  }
+
+  .chart-container {
+    height: calc(100% - 570px);
+    min-height: 750px;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+/* Tablet (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    margin-left: 100px;
+  }
+
+  .container-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .content-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+
+  #divA {
+    width: 100%;
+    padding: 0 10px; /* Match number-grid margins */
+  }
+
+  .control-row {
+    width: 100%; /* Match number-grid width */
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .number-grid {
+    height: 180px;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .action-button,
+  .action-dropdown {
+    flex: 1; /* Equal distribution */
+    min-width: 0;
+    font-size: 13px;
+    padding: 0 6px;
+  }
+
+  .strategy-section {
+    height: 232px;
+    padding: 10px;
+  }
+
+  .chart-container {
+    height: 400px;
+    margin-top: 0;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .control-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: calc(100% - 25px); /* Account for left (10px) and right (15px) margins */
+    margin-left: 10px;
+    margin-right: 15px; /* Adjusted margin-right for small screens */
+  }
+
+  .action-button {
+    flex: 1;
+    min-width: 60px;
+    font-size: 12px;
+    padding: 0 6px;
+
+  }
+
+  .action-dropdown {
+    flex: 2; /* Give more space to dropdown */
+    min-width: 120px; /* Minimum width for full text visibility */
+    font-size: 12px;
+    padding: 0 24px 0 6px; /* Extra padding-right for dropdown arrow */
+  }
+
+  .number-grid {
+    height: auto;
+    min-height: 180px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    max-width: calc(100% - 25px); /* Account for left (10px) and right (15px) margins */
+    margin-left: 10px;
+    margin-right: 15px; /* Adjusted margin-right for small screens */
+  }
+
+  .number-button {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+  }
+
+  .strategy-section {
+    height: 300px;
+  }
+
+  .chart-container {
+    height: 400px;
+  }
+}
+
+/* Small Mobile (up to 400px) */
+@media (max-width: 400px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .control-row {
+    width: 100%;
+    max-width: calc(100% - 25px); /* Account for left (10px) and right (15px) margins */
+    margin-left: 10px;
+    margin-right: 15px; /* Adjusted margin-right for small screens */
+  }
+
+  .number-grid {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    padding: 8px;
+    width: 100%;
+    max-width: calc(100% - 25px); /* Account for left (10px) and right (15px) margins */
+    margin-left: 10px;
+    margin-right: 15px; /* Adjusted margin-right for small screens */
+  }
+
+  .number-button {
+    height: 40px;
+    width: 40px;
+  }
+
+  .number {
+    font-size: 14px;
+  }
+
+  .percentage {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .action-button {
+    flex: 1;
+    min-width: 55px;
+    font-size: 11px;
+    padding: 0 4px;
+  }
+
+  .action-dropdown {
+    flex: 2;
+    min-width: 110px; /* Slightly smaller min-width for small screens */
+    font-size: 11px;
+    padding: 0 24px 0 4px;
+  }
+
+  .strategy-section {
+    height: 192px;
+  }
+}
+
+
+
+/* Additional hover effects for containers */
+.strategy-section,
+.number-grid, 
+.action-button {
+  border: 2px solid #e9e6e7;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.strategy-section:hover,
+.number-grid:hover, 
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(58, 54, 219, 0.25);
+  border-color: var(--accent-color);
+}
+
+
+/* Fallback for gap property in older browsers */
+@supports not (gap: 10px) {
+  .control-row > * {
+    margin-right: 8px;
+  }
+  .control-row > *:last-child {
+    margin-right: 0;
+  }
+}

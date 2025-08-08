@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="cssfiles/home22.css">
+  <link rel="stylesheet" href="cssfiles/style1.css">
+  <link rel="stylesheet" href="cssfiles/bar.css">
+  <link rel="stylesheet" href="cssfiles/toast.css">
+
+  <style>
+    .control-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    #buy-btn,
+    #run-btn {
+      min-width: 80px;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background: #0288d1;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #run-btn {
+      background: #8e24aa;
+    }
+
+    /* Minimal modal styles */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .modal-close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .modal-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .modal-table th,
+    .modal-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .modal-table th {
+      background: #f4f4f4;
+    }
+
+    .pl-profit {
+      color: green;
+    }
+
+    .pl-loss {
+      color: red;
+    }
+
+    .status-won {
+      color: green;
+    }
+
+    .status-lost {
+      color: red;
+    }
+
+    .summary-pl.negative {
+      color: red;
+    }
+
+    #tradeSummary {
+      margin-top: 10px;
+    }
+
+    #tradeSummary span {
+      margin-right: 20px;
+    }
+
+    /* Table wrapper for scrolling */
+    .table-wrapper {
+      max-height: 300px;
+      /* Adjustable height */
+      overflow-y: auto;
+      width: 100%;
+    }
+
+    /* Clear button styles */
+    #tradeTableClear {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 5px 10px;
+      font-size: 14px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1;
+      /* Ensure it stays above the table */
+    }
+
+    #tradeTableClear:hover {
+      background: #cc0000;
+    }
+
+    /* Responsive design for small screens */
+    @media (max-width: 600px) {
+      .modal-content {
+        width: 100%;
+        margin: 5% 0;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body style="height: 100px;">
+  <nav class="navbar">
+    <div class="navbar-top">
+      <div class="left-section">
+        <div class="logo">
+          <img src="logos/zerotwologo.png" style="border-radius: 80px;">
+        </div>
+        <span class="zerotwo-text">ZEROTWO</span>
+        <span class="message-icon" role="button" aria-label="Toggle social links">💬</span>
+      </div>
+      <div class="right-section">
+        <span class="balance-indicator">Bal: 235$</span>
+        <span class="random-number">CR432346</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li class="nav-item" style="cursor: pointer;">Analysis</li>
+      <li class="nav-item" style="cursor: pointer;">Signals</li>
+      <li class="nav-item" style="cursor: pointer;">Auto Trading</li>
+      <li class="nav-item" style="cursor: pointer;">Manual</li>
+      <li class="nav-item" style="cursor: pointer;">Premium Strategies</li>
+      <li class="nav-item" style="cursor: pointer;">Bot Site</li>
+      <li class="nav-item">Logout</li>
+    </ul>
+    <ul class="social-links" id="social-links">
+      <li><a href="https://wa.me/"><i class="fab fa-whatsapp"></i>WhatsApp</a></li>
+      <li><a href="https://instagram.com/"><i class="fab fa-instagram"></i>Instagram</a></li>
+      <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i>Twitter</a></li>
+      <li><a href="https://tiktok.com/"><i class="fab fa-tiktok"></i>TikTok</a></li>
+    </ul>
+  </nav>
+
+  <div id="toastContainer"
+    style="position:fixed;top:16px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:12px;"></div>
+
+  <div class="main-content" id="mainContent">
+    <div class="container-wrapper">
+      <div class="content-row">
+        <div id="divA">
+          <div class="control-row">
+            <button class="action-button">Market</button>
+            <select class="action-dropdown" id="market-select">
+              <option value="1HZ10V">Volatility 10(1s)</option>
+              <option value="R_10">Volatility 10</option>
+              <option value="1HZ25V">Volatility 25(1s)</option>
+              <option value="R_25">Volatility 25</option>
+              <option value="1HZ50V">Volatility 50(1s)</option>
+              <option value="R_50">Volatility 50</option>
+              <option value="1HZ75V">Volatility 75(1s)</option>
+              <option value="R_75">Volatility 75</option>
+              <option value="1HZ100V">Volatility 100(1s)</option>
+              <option value="R_100">Volatility 100</option>
+              <option value="RDBEAR">Bear Market</option>
+              <option value="RDBULL">Bull Market</option>
+              <option value="JD10">Jump 10 Index</option>
+              <option value="JD25">Jump 25 Index</option>
+              <option value="JD50">Jump 50 Index</option>
+              <option value="JD75">Jump 75 Index</option>
+              <option value="JD100">Jump 100 Index</option>
+            </select>
+            <button id="buy-btn">N/A</button>
+            <button id="run-btn">N/A</button>
+          </div>
+
+          <div class="number-grid">
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">0</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">1</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">2</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">3</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">4</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">5</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">6</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">7</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">8</span>
+              <span class="percentage">0.0%</span>
+            </button>
+            <button class="number-button">
+              <div class="cursor-pointer"></div>
+              <span class="number">9</span>
+              <span class="percentage">0.0%</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="divB">
+          <div class="strategy-section">
+            <div class="strategy-controls">
+              <div class="strategy-row">
+                <select class="action-dropdown" id="main-strategy">
+                  <option value="" disabled selected>Trade type</option>
+                  <option value="even">Even</option>
+                  <option value="odd">Odd</option>
+                  <option value="over">Over</option>
+                  <option value="under">Under</option>
+                  <option value="matches">Matches</option>
+                  <option value="differs">Differs</option>
+                </select>
+                <select class="action-dropdown" id="sub-strategy">
+                  <option value="manual" selected>Manual</option>
+                  <option value="entry">Entry Strategy</option>
+                  <option value="count">Count Strategy</option>
+                  <option value="advanced">Advanced</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="strategy-form-container" id="forms-container">
+              <!-- Form will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+
+        <div id="divC">
+          <!-- Other content can go here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tradeTableModalBg" class="modal-bg">
+    <div class="modal-content">
+      <div class="table-header">
+        <button id="tradeTableClear">Clear</button>
+        <span id="tradeTableModalClose" class="modal-close">×</span>
+      </div>
+      <div class="table-wrapper">
+        <table id="tradeTable" class="modal-table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Market</th>
+              <th>Entry/Exit</th>
+              <th>Stake</th>
+              <th>P/L</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="trade-tbody"></tbody>
+        </table>
+        <div id="tradeTableLoader">Loading...</div>
+      </div>
+      <div id="tradeSummary" style="display:none;">
+        <span><strong>Total Stake:</strong> $0.00</span>
+        <span><strong>Runs:</strong> 0</span>
+        <span>Won: 0</span>
+        <span>Lost: 0</span>
+        <span><strong>P/L:</strong> <span class="summary-pl">$0.00</span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="jsfiles/navigation2.js"></script>
+  <script src="jsfiles/a4uth-guard.js"></script>
+  <script src="jsfiles/device-fingerprint2.js"></script>
+  <script src="jsfiles/.alive.js"></script>
+
+  <script src="jsfiles/bar.js"></script>
+  <script src="jsfiles/str1.js"></script>
+  <script src="jsfiles/1p.js"></script>
+  <script src="jsfiles/propasals.js"></script>
+  <script src="jsfiles/dfreq.js"></script>
+
+
+</body>
+
+</html>
